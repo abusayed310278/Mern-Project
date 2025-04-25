@@ -1,11 +1,18 @@
-import React from 'react'
-import {BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 
-export default function App() {
+import Users from "./user/pages/Users"
+import NewPlace from "./places/pages/NewPlace"
+
+const App = () => {
   return (
-    <>
-      <h1>My React App</h1>
-
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Users />} />
+        <Route path="/places/new" element={<NewPlace />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   )
 }
+
+export default App
